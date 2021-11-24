@@ -8,25 +8,21 @@ public class HP : MonoBehaviour
     [SerializeField] private int _maxHp;
     private int _hp;
     public UnityEvent GameOver;
-    public UnityEvent Change;
-
-    public int Hp { get => _hp; private set => _hp = value; }
+    public UnityEvent<int> Change;
 
     private void Start()
     {
         SetStartValue();
     }
-
     public void SetStartValue()
     {
         _hp = _maxHp;
-        Change.Invoke();
+        Change.Invoke(_hp);
     }
-
     public void TakeDamage(float amount)
     {
         _hp -= (int)amount;
-        Change.Invoke();
+        Change.Invoke(_hp);
         if (_hp < 1)
         {
             GameOver.Invoke();

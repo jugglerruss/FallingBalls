@@ -10,7 +10,6 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _hpText;
     [SerializeField] private Transform _losePanel;
  
-
     public void SetScore(int score)
     {
         _scoreText.text = ($"Score: {score}");

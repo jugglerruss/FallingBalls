@@ -7,34 +7,34 @@ public class ScoreCounter : MonoBehaviour
 {
     private int _highScore;
     private int _score;
-    public int Highscore => _highScore;
-    public int Score => _score;
-    public UnityEvent Change;
+    public UnityEvent<int> ChangeScore;
+    public UnityEvent<int> ChangeHiScore;
     private void Start()
     {
         PlayerPrefs.SetInt("Highscore", 0);
         _highScore = PlayerPrefs.GetInt("Highscore", 0);
         SetStartScore();
     }
-    public void TrySetHighScore(int score)
+    public void TrySetHighScore(int score) 
     {
         if (score > _highScore)
         {
             _highScore = score;
             PlayerPrefs.SetInt("Highscore", score);
-            Change?.Invoke();
+            ChangeHiScore?.Invoke(_score);
         }            
     }
-    public void AddScore(float amount)
+    public void AddScore(int amount)
     {
-        _score += (int)amount;
-        Change?.Invoke();
-        TrySetHighScore(_score);
+        _score += amount;
+        ChangeScore?.Invoke(_score);
+        TrySetHighScore(_score); 
     }
     public void SetStartScore()
     {
         _score = 0;
-        Change?.Invoke();
+        ChangeScore?.Invoke(_score);
+        ChangeHiScore?.Invoke(_highScore);
     }
 
 }

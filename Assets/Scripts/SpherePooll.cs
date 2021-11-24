@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpherePooll : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class SpherePooll : MonoBehaviour
     [SerializeField] private float minY;
     [SerializeField] private float maxY;
     [SerializeField] private float instantiatingY;
-    private Game _game;
     private PoolMono<Sphere> _pool; 
     private float _speedSphere;
+    public UnityEvent<int> OnBlowUpSpere;
+    public UnityEvent<float> OnSendDamage;
     void Start()
     {
-        _game = FindObjectOfType<Game>();
         _pool = new PoolMono<Sphere>(spherePrefab, _poolCount, this.transform);
         _pool.AutoExpand = autoExpand;
     }
@@ -53,13 +54,16 @@ public class SpherePooll : MonoBehaviour
     }
     private void CreateSphere()
     {
+        var sphere = _pool.GetFreeElement();
+        sphere.transform.position = GetRandomPosition();
+        sphere.SetVelocityY(_speedSphere);
+        sphere.OnBlowUp += OnBlowUpSpere.Invoke;
+        sphere.OnSendDamage += OnSendDamage.Invoke;
+    }
+    private Vector3 GetRandomPosition() {
         var rX = UnityEngine.Random.Range(minX, maxX);
         var rZ = UnityEngine.Random.Range(minY, maxY);
         var y = instantiatingY;
-        var rPosition = new Vector3(rX, y, rZ);
-        var sphere = _pool.GetFreeElement();
-        sphere.transform.position = rPosition;
-        Debug.Log(_speedSphere);
-        sphere.SetVelocityY(_speedSphere);
+        return new Vector3(rX, y, rZ);
     }
 }

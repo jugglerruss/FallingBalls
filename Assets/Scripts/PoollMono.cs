@@ -57,6 +57,5 @@ public class PoolMono<T> where T : MonoBehaviour
             return CreateObject(true);
 
         throw new Exception($"Нет свободных элементов в пуле типа {typeof(T)}");
-
     }
 }

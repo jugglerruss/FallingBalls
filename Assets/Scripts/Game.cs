@@ -32,15 +32,6 @@ public class Game : MonoBehaviour
         _isPaused = false;
         StartGame.Invoke();
     }
-    public void ChangeHP()
-    {
-        _UI.SetHP(_hp.Hp);
-    }
-    public void ChangeScore()
-    {
-        _UI.SetScore(_scoreCounter.Score);
-        _UI.SetHiScore(_scoreCounter.Highscore);
-    }
     public void Restart()
     {
         _scoreCounter.SetStartScore();

@@ -882,6 +882,21 @@ MonoBehaviour:
   minY: 1
   maxY: 4
   instantiatingY: 7
+  BlowUpSpere:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1159266054}
+        m_TargetAssemblyTypeName: ScoreCounter, Assembly-CSharp
+        m_MethodName: AddScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1022627773
 Transform:
   m_ObjectHideFlags: 0
@@ -933,7 +948,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1159266056}
         m_TargetAssemblyTypeName: Game, Assembly-CSharp
         m_MethodName: ChangeScore
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
