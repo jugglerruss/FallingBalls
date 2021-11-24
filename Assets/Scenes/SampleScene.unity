@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457721394
 GameObject:
@@ -885,7 +885,7 @@ MonoBehaviour:
   OnBlowUpSpere:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1159266054}
+      - m_Target: {fileID: 1833838277}
         m_TargetAssemblyTypeName: ScoreCounter, Assembly-CSharp
         m_MethodName: AddScore
         m_Mode: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
   OnSendDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1159266057}
+      - m_Target: {fileID: 1480449475}
         m_TargetAssemblyTypeName: HP, Assembly-CSharp
         m_MethodName: TakeDamage
         m_Mode: 0
@@ -924,7 +924,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1159266053
 GameObject:
@@ -936,8 +936,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1159266055}
   - component: {fileID: 1159266056}
-  - component: {fileID: 1159266054}
   - component: {fileID: 1159266057}
+  - component: {fileID: 1159266054}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -954,39 +954,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1159266053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a4db66194dc56418cb040adb66abcc, type: 3}
+  m_Script: {fileID: 11500000, guid: f3d4cbf003a66d5489b265eba703da00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChangeScore:
+  _maxHp: 0
+  GameOver:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1533962825}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: SetScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  ChangeHiScore:
+      m_Calls: []
+  Change:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1533962825}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: SetHiScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &1159266055
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,6 +991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UI: {fileID: 1533962825}
+  _scoreCounter: {fileID: 1833838277}
+  _hp: {fileID: 1480449475}
   StartGame:
     m_PersistentCalls:
       m_Calls:
@@ -1036,6 +1015,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159266053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a4db66194dc56418cb040adb66abcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeScore:
+    m_PersistentCalls:
+      m_Calls: []
+  ChangeHiScore:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1480449474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480449476}
+  - component: {fileID: 1480449475}
+  m_Layer: 0
+  m_Name: HitPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1480449475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480449474}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3d4cbf003a66d5489b265eba703da00, type: 3}
@@ -1096,6 +1110,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!4 &1480449476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480449474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7139187, y: 9.327969, z: 111.99973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1493381474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,10 +1639,83 @@ RectTransform:
   - {fileID: 730594506}
   - {fileID: 457721395}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1833838276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833838278}
+  - component: {fileID: 1833838277}
+  m_Layer: 0
+  m_Name: ScoreCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1833838277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833838276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a4db66194dc56418cb040adb66abcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChangeScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1533962825}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: SetScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ChangeHiScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1533962825}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: SetHiScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1833838278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833838276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.7139187, y: 9.327969, z: 111.99973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

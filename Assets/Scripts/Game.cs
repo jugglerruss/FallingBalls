@@ -9,16 +9,11 @@ using UnityEngine.Events;
 public class Game : MonoBehaviour
 {
     [SerializeField] private UI _UI;
-    private ScoreCounter _scoreCounter;
-    private HP _hp;
+    [SerializeField] private ScoreCounter _scoreCounter;
+    [SerializeField] private HP _hp;
     private bool _isPaused;
     public bool IsPaused => _isPaused;
     public UnityEvent StartGame;
-    private void Awake()
-    {
-        _scoreCounter = GetComponent<ScoreCounter>();
-        _hp = GetComponent<HP>();
-    }
     public void Pause()
     {
         _isPaused = true;
