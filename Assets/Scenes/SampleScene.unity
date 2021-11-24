@@ -882,12 +882,27 @@ MonoBehaviour:
   minY: 1
   maxY: 4
   instantiatingY: 7
-  BlowUpSpere:
+  OnBlowUpSpere:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1159266054}
         m_TargetAssemblyTypeName: ScoreCounter, Assembly-CSharp
         m_MethodName: AddScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSendDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1159266057}
+        m_TargetAssemblyTypeName: HP, Assembly-CSharp
+        m_MethodName: TakeDamage
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -942,12 +957,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a4db66194dc56418cb040adb66abcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Change:
+  ChangeScore:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1159266056}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
-        m_MethodName: ChangeScore
+      - m_Target: {fileID: 1533962825}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: SetScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ChangeHiScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1533962825}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: SetHiScore
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1054,10 +1084,10 @@ MonoBehaviour:
   Change:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1159266056}
-        m_TargetAssemblyTypeName: Game, Assembly-CSharp
-        m_MethodName: ChangeHP
-        m_Mode: 1
+      - m_Target: {fileID: 1533962825}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: SetHP
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
